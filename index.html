@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janine Eireen E. Gabrinez - Portfolio & Resume</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            bg: '#09090b',
+                            card: '#121216',
+                            border: '#27272a',
+                            hover: '#18181b',
+                        },
+                        accent: {
+                            purple: '#8b5cf6',
+                            cyan: '#06b6d4',
+                            pink: '#ec4899',
+                            blue: '#3b82f6'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09090b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3f3f46;
+        }
+
+        /* Glassmorphism effects */
+        .glass-panel {
+            background: rgba(18, 18, 22, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: rgba(24, 24, 27, 0.5);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(139, 92, 246, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.2);
+        }
+
+        /* Gradient Glowing Effects */
+        .glow-purple {
+            box-shadow: 0 0 25px -5px rgba(139, 92, 246, 0.3);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #a78bfa 0%, #38bdf8 50%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-cyan {
+            background: linear-gradient(135deg, #22d3ee 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Grid Background Pattern */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+
+        /* Dynamic Glow Spotlight */
+        #spotlight {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 30;
+            background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(139, 92, 246, 0.06), transparent 80%);
+            transition: opacity 0.3s ease;
+        }
+
+        .badge {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.25);
+            color: #c4b5fd;
+        }
+    </style>
+</head>
+<body class="bg-dark-bg text-zinc-300 font-sans antialiased selection:bg-purple-900 selection:text-white relative overflow-x-hidden min-h-screen">
+
+    <!-- Interactive Spotlight Effect -->
+    <div id="spotlight"></div>
+
+    <!-- Background Ambient Elements -->
+    <div class="fixed top-0 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-[128px] pointer-events-none z-0"></div>
+    <div class="fixed bottom-1/3 right-1/4 w-96 h-96 bg-cyan-600/10 rounded-full blur-[128px] pointer-events-none z-0"></div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-panel border-b border-zinc-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600 via-indigo-600 to-cyan-500 p-[1px] flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
+                    <div class="w-full h-full bg-dark-bg rounded-[11px] flex items-center justify-center">
+                        <span class="font-mono font-bold text-lg text-white">JEG</span>
+                    </div>
+                </div>
+                <span class="font-semibold text-lg text-white tracking-tight hidden sm:inline-block">Janine Gabrinez</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">About</a>
+                <a href="#skills" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Skills</a>
+                <a href="#experience" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Experience</a>
+                <a href="#certifications" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Certifications</a>
+                <a href="#contact" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Contact</a>
+            </nav>
+
+            <!-- CTA Right -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="#contact" class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 rounded-lg shadow-lg shadow-purple-600/20 transition-all duration-300 flex items-center gap-2">
+                    <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                    Hire Me
+                </a>
+            </div>
+
+            <!-- Mobile menu button -->
+            <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800/60 focus:outline-none">
+                <i data-lucide="menu" id="menuIcon" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobileDrawer" class="hidden md:hidden glass-panel border-b border-zinc-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-zinc-300 hover:text-white hover:bg-zinc-800/50">About</a>
+            <a href="#skills" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-zinc-300 hover:text-white hover:bg-zinc-800/50">Skills</a>
+            <a href="#experience" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-zinc-300 hover:text-white hover:bg-zinc-800/50">Experience</a>
+            <a href="#certifications" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-zinc-300 hover:text-white hover:bg-zinc-800/50">Certifications</a>
+            <a href="#contact" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-zinc-300 hover:text-white hover:bg-zinc-800/50">Contact</a>
+            <div class="pt-2">
+                <a href="#contact" class="mobile-link block w-full text-center px-4 py-2.5 text-sm font-semibold text-white bg-purple-600 hover:bg-purple-500 rounded-lg shadow-lg">Get in Touch</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-20">
+        
+        <!-- HERO SECTION -->
+        <section class="relative min-h-[90vh] flex items-center justify-center py-20 bg-grid-pattern overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Left Hero Content -->
+                    <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card border border-purple-500/30 text-purple-300 text-xs font-mono font-semibold tracking-wide">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            Available for IT Support & Systems Roles
+                        </div>
+
+                        <div class="space-y-4">
+                            <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
+                                Janine Eireen <br/>
+                                <span class="text-gradient">E. Gabrinez</span>
+                            </h1>
+                            <p class="text-lg sm:text-xl font-medium text-purple-300/90 font-mono">
+                                IT Engineer & Remote Support Specialist
+                            </p>
+                            <p class="text-sm font-semibold text-zinc-400 uppercase tracking-widest">
+                                Computer Science Graduate
+                            </p>
+                        </div>
+
+                        <p class="text-zinc-400 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                            Versatile Computer Science graduate with 5+ years of IT support experience. Specialized in remote IT helpdesk, Microsoft Office 365 administration, Active Directory management, VPN setup, and incident SLA prioritization. Proven track record in troubleshooting hardware/software and digital process optimization.
+                        </p>
+
+                        <!-- Quick Badges -->
+                        <div class="flex flex-wrap justify-center lg:justify-start gap-2 pt-2">
+                            <span class="badge px-3 py-1 rounded-md text-xs font-mono flex items-center gap-1.5">
+                                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-purple-400"></i> M365 Admin
+                            </span>
+                            <span class="badge px-3 py-1 rounded-md text-xs font-mono flex items-center gap-1.5">
+                                <i data-lucide="server" class="w-3.5 h-3.5 text-cyan-400"></i> Active Directory
+                            </span>
+                            <span class="badge px-3 py-1 rounded-md text-xs font-mono flex items-center gap-1.5">
+                                <i data-lucide="wrench" class="w-3.5 h-3.5 text-pink-400"></i> Level 1 Tech Support
+                            </span>
+                            <span class="badge px-3 py-1 rounded-md text-xs font-mono flex items-center gap-1.5">
+                                <i data-lucide="video" class="w-3.5 h-3.5 text-indigo-400"></i> Digital Media
+                            </span>
+                        </div>
+
+                        <!-- CTA Actions -->
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                            <a href="#experience" class="w-full sm:w-auto px-6 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-600 hover:opacity-95 transition-all duration-300 shadow-xl shadow-purple-900/30 flex items-center justify-center gap-2">
+                                <i data-lucide="briefcase" class="w-4 h-4"></i>
+                                View Work Experience
+                            </a>
+                            <a href="#contact" class="w-full sm:w-auto px-6 py-3.5 rounded-xl font-semibold text-zinc-200 glass-card hover:bg-zinc-800 hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
+                                <i data-lucide="mail" class="w-4 h-4"></i>
+                                Contact Me
+                            </a>
+                            <button onclick="downloadResumeModal()" class="w-full sm:w-auto px-5 py-3.5 rounded-xl font-medium text-zinc-400 hover:text-white glass-card hover:bg-zinc-800/80 transition-all duration-300 flex items-center justify-center gap-2 border border-zinc-700/60">
+                                <i data-lucide="file-text" class="w-4 h-4 text-purple-400"></i>
+                                Summary PDF
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right Hero Visual / Profile Card -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative w-full max-w-md">
+                            <!-- Outer Ambient Ring -->
+                            <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-cyan-500 rounded-3xl blur-lg opacity-40 group-hover:opacity-100 transition duration-1000"></div>
+                            
+                            <div class="relative glass-panel rounded-3xl p-6 sm:p-8 space-y-6 border border-zinc-700/50">
+                                <div class="relative w-40 h-40 mx-auto rounded-full p-1 bg-gradient-to-tr from-purple-500 via-indigo-500 to-cyan-400 shadow-2xl overflow-hidden">
+                                    <div class="w-full h-full rounded-full bg-zinc-900 flex items-center justify-center overflow-hidden">
+                                        <!-- Profile SVG Avatar Illustration fallback -->
+                                        <svg class="w-full h-full text-zinc-400 bg-zinc-950" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="50" cy="50" r="48" fill="#18181b"/>
+                                            <circle cx="50" cy="38" r="20" fill="#a78bfa" opacity="0.8"/>
+                                            <path d="M20 85C20 68 33 58 50 58C67 58 80 68 80 85" fill="#6366f1"/>
+                                            <!-- Glasses SVG Graphic overlay -->
+                                            <rect x="34" y="34" width="13" height="9" rx="2" stroke="#ffffff" stroke-width="2" fill="none"/>
+                                            <rect x="53" y="34" width="13" height="9" rx="2" stroke="#ffffff" stroke-width="2" fill="none"/>
+                                            <line x1="47" y1="38" x2="53" y2="38" stroke="#ffffff" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                </div>
+
+                                <div class="text-center space-y-2">
+                                    <h3 class="text-xl font-bold text-white">Janine Eireen E. Gabrinez</h3>
+                                    <p class="text-xs font-mono text-cyan-400">B.S. Computer Science | AMA College</p>
+                                </div>
+
+                                <div class="space-y-3 pt-4 border-t border-zinc-800 text-sm">
+                                    <div class="flex items-center justify-between text-xs sm:text-sm">
+                                        <span class="text-zinc-500 flex items-center gap-2">
+                                            <i data-lucide="map-pin" class="w-4 h-4 text-purple-400"></i> Location
+                                        </span>
+                                        <span class="text-zinc-300 font-medium text-right">Misamis Oriental, PH</span>
+                                    </div>
+                                    <div class="flex items-center justify-between text-xs sm:text-sm">
+                                        <span class="text-zinc-500 flex items-center gap-2">
+                                            <i data-lucide="phone" class="w-4 h-4 text-cyan-400"></i> Phone
+                                        </span>
+                                        <a href="tel:+639934417648" class="text-zinc-300 hover:text-cyan-400 font-medium font-mono">+63 993 441 7648</a>
+                                    </div>
+                                    <div class="flex items-center justify-between text-xs sm:text-sm">
+                                        <span class="text-zinc-500 flex items-center gap-2">
+                                            <i data-lucide="mail" class="w-4 h-4 text-indigo-400"></i> Email
+                                        </span>
+                                        <a href="mailto:jan.gabrinez@outlook.com" class="text-zinc-300 hover:text-indigo-400 font-medium font-mono truncate max-w-[180px]">jan.gabrinez@outlook.com</a>
+                                    </div>
+                                </div>
+
+                                <div class="pt-2">
+                                    <div class="bg-zinc-900/90 rounded-xl p-3 border border-zinc-800 flex items-center justify-between">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
+                                            <span class="text-xs text-zinc-300 font-medium">5 Years Remote IT Exp.</span>
+                                        </div>
+                                        <span class="text-xs font-mono text-purple-400 font-semibold">Verified</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT & PERSONAL TRAITS SECTION -->
+        <section id="about" class="py-20 border-t border-zinc-800/60 bg-dark-bg/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center space-y-4 mb-16">
+                    <h2 class="text-xs font-mono font-bold uppercase tracking-widest text-purple-400">Who I Am</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-white">About & Personal Strengths</h3>
+                    <div class="w-16 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Card 1: Education & Location -->
+                    <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-2">
+                            <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white">Education & Location</h4>
+                        <div class="space-y-3 text-sm text-zinc-400">
+                            <div>
+                                <p class="text-xs font-mono text-purple-400 font-semibold uppercase">Degree</p>
+                                <p class="text-white font-medium">Bachelor of Science in Computer Science</p>
+                                <p class="text-xs text-zinc-500">AMA Computer College</p>
+                            </div>
+                            <div class="pt-2 border-t border-zinc-800">
+                                <p class="text-xs font-mono text-purple-400 font-semibold uppercase">Address</p>
+                                <p class="text-zinc-300">Lower Jasaan, Jasaan, Misamis Oriental, 9000 Philippines</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Professional Philosophy -->
+                    <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-2">
+                            <i data-lucide="headphones" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white">IT Support Focus</h4>
+                        <p class="text-sm text-zinc-400 leading-relaxed">
+                            Focused on delivering high-quality L1/L2 technical assistance, maintaining high customer satisfaction, rapid issue diagnostic, and adherence to strict Service Level Agreements (SLAs). Experienced in handling global clients remotely.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-xs bg-zinc-800 text-zinc-300 px-2.5 py-1 rounded border border-zinc-700">SLA Tracking</span>
+                            <span class="text-xs bg-zinc-800 text-zinc-300 px-2.5 py-1 rounded border border-zinc-700">Remote Admin</span>
+                            <span class="text-xs bg-zinc-800 text-zinc-300 px-2.5 py-1 rounded border border-zinc-700">Troubleshooting</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Core Personal Traits -->
+                    <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/30 flex items-center justify-center text-pink-400 mb-2">
+                            <i data-lucide="heart-handshake" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white">Personal Traits</h4>
+                        <ul class="space-y-2.5 text-sm text-zinc-300">
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+                                <span>Creative Spirit & Problem Solver</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+                                <span>Reliable & Professional Conduct</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+                                <span>Highly Organized & Detail-Oriented</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+                                <span>Collaborative Team Player</span>
+                            </li>
+                            <li class="flex items-center gap-2.5">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+                                <span>Self-Motivated Continuous Learner</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- TECHNICAL SKILLS MATRIX -->
+        <section id="skills" class="py-20 border-t border-zinc-800/60 bg-grid-pattern">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center space-y-4 mb-16">
+                    <h2 class="text-xs font-mono font-bold uppercase tracking-widest text-cyan-400">Capabilities</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Technical Skills & Expertise</h3>
+                    <div class="w-16 h-1 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Skill 1: Microsoft Windows Ecosystem -->
+                    <div class="glass-card rounded-2xl p-6 space-y-5">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400">
+                                    <i data-lucide="monitor" class="w-5 h-5"></i>
+                                </div>
+                                <h4 class="font-bold text-white text-lg">Microsoft Windows</h4>
+                            </div>
+                            <span class="text-xs font-mono text-blue-400">Advanced</span>
+                        </div>
+                        <ul class="space-y-2 text-sm text-zinc-400">
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-blue-400 mt-0.5 shrink-0"></i>
+                                <span>Installing & Configuring Windows Products</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-blue-400 mt-0.5 shrink-0"></i>
+                                <span>Implementing & Managing System Resources</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-blue-400 mt-0.5 shrink-0"></i>
+                                <span>Hardware/Software Device Drivers Troubleshooting</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-blue-400 mt-0.5 shrink-0"></i>
+                                <span>Monitoring & Optimizing System Performance</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Skill 2: Microsoft 365 & Admin -->
+                    <div class="glass-card rounded-2xl p-6 space-y-5">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400">
+                                    <i data-lucide="cloud" class="w-5 h-5"></i>
+                                </div>
+                                <h4 class="font-bold text-white text-lg">M365 & Cloud Admin</h4>
+                            </div>
+                            <span class="text-xs font-mono text-purple-400">Certified</span>
+                        </div>
+                        <ul class="space-y-2 text-sm text-zinc-400">
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-purple-400 mt-0.5 shrink-0"></i>
+                                <span>Microsoft Office 365 Admin Center</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-purple-400 mt-0.5 shrink-0"></i>
+                                <span>Active Directory User & Device Management</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-purple-400 mt-0.5 shrink-0"></i>
+                                <span>Exchange Online & SharePoint Administration</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-purple-400 mt-0.5 shrink-0"></i>
+                                <span>VPN Setup, Firewall & Remote Connectivity</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Skill 3: Remote IT Helpdesk -->
+                    <div class="glass-card rounded-2xl p-6 space-y-5">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                                    <i data-lucide="life-buoy" class="w-5 h-5"></i>
+                                </div>
+                                <h4 class="font-bold text-white text-lg">IT Helpdesk & SLA</h4>
+                            </div>
+                            <span class="text-xs font-mono text-emerald-400">5+ Years</span>
+                        </div>
+                        <ul class="space-y-2 text-sm text-zinc-400">
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"></i>
+                                <span>First Contact Support via Phone & Email</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"></i>
+                                <span>Incident Ticketing Prioritization by Impact & Severity</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"></i>
+                                <span>Strict SLA Adherence & Timely Escalations</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0"></i>
+                                <span>Diagnostic Techniques & Desktop Formatting</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Skill 4: E-Commerce & Systems Coordination -->
+                    <div class="glass-card rounded-2xl p-6 space-y-5">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                                    <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                                </div>
+                                <h4 class="font-bold text-white text-lg">E-Commerce & Warehouse</h4>
+                            </div>
+                            <span class="text-xs font-mono text-amber-400">Proficient</span>
+                        </div>
+                        <ul class="space-y-2 text-sm text-zinc-400">
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-amber-400 mt-0.5 shrink-0"></i>
+                                <span>BigCommerce Product Upload & Data Accuracy</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-amber-400 mt-0.5 shrink-0"></i>
+                                <span>Dynamic Price Updates & Catalog Management</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-amber-400 mt-0.5 shrink-0"></i>
+                                <span>Sales Warehouse & Inventory Coordination</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-amber-400 mt-0.5 shrink-0"></i>
+                                <span>PO Validation & Cross-Departmental Ops</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Skill 5: Video Editing & Creative Media -->
+                    <div class="glass-card rounded-2xl p-6 space-y-5">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+                                    <i data-lucide="video" class="w-5 h-5"></i>
+                                </div>
+                                <h4 class="font-bold text-white text-lg">Video Production & Photoshop</h4>
+                            </div>
+                            <span class="text-xs font-mono text-indigo-400">Creative</span>
+                        </div>
+                        <ul class="space-y-2 text-sm text-zinc-400">
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-indigo-400 mt-0.5 shrink-0"></i>
+                                <span>Adobe Photoshop (Image Formatting & Retouching)</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-indigo-400 mt-0.5 shrink-0"></i>
+                                <span>Video Assembly, Cuts, Transitions & Overlays</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-indigo-400 mt-0.5 shrink-0"></i>
+                                <span>Audio Mixing, Music, Voiceovers & Sound Effects</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-indigo-400 mt-0.5 shrink-0"></i>
+                                <span>Multi-platform Optimization (YouTube, IG, Web)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Skill 6: Link Building & SEO -->
+                    <div class="glass-card rounded-2xl p-6 space-y-5">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                                    <i data-lucide="globe" class="w-5 h-5"></i>
+                                </div>
+                                <h4 class="font-bold text-white text-lg">SEO & Web Outreach</h4>
+                            </div>
+                            <span class="text-xs font-mono text-cyan-400">Specialized</span>
+                        </div>
+                        <ul class="space-y-2 text-sm text-zinc-400">
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-cyan-400 mt-0.5 shrink-0"></i>
+                                <span>Resource Page & Citation Link Building</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-cyan-400 mt-0.5 shrink-0"></i>
+                                <span>Competitor & Industry Web Research</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-cyan-400 mt-0.5 shrink-0"></i>
+                                <span>Outreach Email Management & Stakeholder Relations</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-cyan-400 mt-0.5 shrink-0"></i>
+                                <span>Monthly Budget Allocation & Team Support</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- WORK EXPERIENCE SECTION (Filterable Timeline) -->
+        <section id="experience" class="py-20 border-t border-zinc-800/60 bg-dark-bg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center space-y-4 mb-12">
+                    <h2 class="text-xs font-mono font-bold uppercase tracking-widest text-indigo-400">Career Journey</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Work Experience</h3>
+                    <div class="w-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full"></div>
+                </div>
+
+                <!-- Category Filter Tabs -->
+                <div class="flex flex-wrap justify-center gap-2 mb-12" id="filterTabs">
+                    <button onclick="filterExperience('all')" class="exp-filter-btn px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all bg-purple-600 text-white shadow-lg shadow-purple-600/20" data-filter="all">
+                        All Experience
+                    </button>
+                    <button onclick="filterExperience('it')" class="exp-filter-btn px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all glass-card text-zinc-400 hover:text-white" data-filter="it">
+                        IT Support & Engineering
+                    </button>
+                    <button onclick="filterExperience('digital')" class="exp-filter-btn px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all glass-card text-zinc-400 hover:text-white" data-filter="digital">
+                        E-Commerce & Video
+                    </button>
+                    <button onclick="filterExperience('seo')" class="exp-filter-btn px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all glass-card text-zinc-400 hover:text-white" data-filter="seo">
+                        SEO & Link Building
+                    </button>
+                </div>
+
+                <!-- Timeline / Experience List -->
+                <div class="space-y-6 max-w-4xl mx-auto" id="experienceList">
+                    
+                    <!-- Exp Item 1 -->
+                    <div class="exp-card glass-card rounded-2xl p-6 sm:p-8 space-y-4" data-category="it">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <div>
+                                <span class="text-xs font-mono text-purple-400 font-semibold uppercase tracking-wider">Level 1 Helpdesk IT Engineer (Freelance)</span>
+                                <h4 class="text-xl font-bold text-white">Cre8 MSP Technology LLC / Create I.T.</h4>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-mono shrink-0 w-fit">
+                                2021 – 2026 (5 Years)
+                            </span>
+                        </div>
+                        <ul class="space-y-2 text-sm text-zinc-300">
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-purple-400 mt-1 shrink-0"></i>
+                                <span>Served as first contact for technical assistance via phone/email, resolving hardware and software issues remotely.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-purple-400 mt-1 shrink-0"></i>
+                                <span>Maintained and administered Microsoft Office 365, Exchange, Active Directory, Firewalls, SharePoint, and VPN setups.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-purple-400 mt-1 shrink-0"></i>
+                                <span>Prioritized incident and request tickets by impact and severity, delivering rapid resolution within strict SLAs.</span>
+                            </li>
+                        </ul>
+                        <div class="pt-2 flex flex-wrap gap-2 text-xs">
+                            <span class="bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded">M365 Admin</span>
+                            <span class="bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded">Active Directory</span>
+                            <span class="bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded">VPN Setup</span>
+                            <span class="bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded">Remote Diagnostics</span>
+                        </div>
+                    </div>
+
+                    <!-- Exp Item 2 -->
+                    <div class="exp-card glass-card rounded-2xl p-6 sm:p-8 space-y-4" data-category="digital">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <div>
+                                <span class="text-xs font-mono text-cyan-400 font-semibold uppercase tracking-wider">Video Editor</span>
+                                <h4 class="text-xl font-bold text-white">SevHal Capital Partners</h4>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-mono shrink-0 w-fit">
+                                2025
+                            </span>
+                        </div>
+                        <ul class="space-y-2 text-sm text-zinc-300">
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-cyan-400 mt-1 shrink-0"></i>
+                                <span>Assembled recorded footage, applied cuts, transitions, overlays, and text ensuring high-quality video production.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-cyan-400 mt-1 shrink-0"></i>
+                                <span>Managed music, sound effects, voiceovers, and audio mixing; optimized videos for YouTube, Facebook, and Instagram.</span>
+                            </li>
+                        </ul>
+                        <div class="pt-2 flex flex-wrap gap-2 text-xs">
+                            <span class="bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded">Video Production</span>
+                            <span class="bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded">Audio Mixing</span>
+                            <span class="bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded">Social Media</span>
+                        </div>
+                    </div>
+
+                    <!-- Exp Item 3 -->
+                    <div class="exp-card glass-card rounded-2xl p-6 sm:p-8 space-y-4" data-category="digital">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <div>
+                                <span class="text-xs font-mono text-amber-400 font-semibold uppercase tracking-wider">Product Upload Specialist</span>
+                                <h4 class="text-xl font-bold text-white">Kassa Mall Home Furniture</h4>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono shrink-0 w-fit">
+                                2023 – 2025
+                            </span>
+                        </div>
+                        <ul class="space-y-2 text-sm text-zinc-300">
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-400 mt-1 shrink-0"></i>
+                                <span>Managed product uploads to BigCommerce from supplier websites with accuracy.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-400 mt-1 shrink-0"></i>
+                                <span>Updated real-time pricing to reflect market rates and maintained data consistency across the platform.</span>
+                            </li>
+                        </ul>
+                        <div class="pt-2 flex flex-wrap gap-2 text-xs">
+                            <span class="bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded">BigCommerce</span>
+                            <span class="bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded">Data Accuracy</span>
+                            <span class="bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded">Catalog Mgmt</span>
+                        </div>
+                    </div>
+
+                    <!-- Exp Item 4 -->
+                    <div class="exp-card glass-card rounded-2xl p-6 sm:p-8 space-y-4" data-category="it">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <div>
+                                <span class="text-xs font-mono text-emerald-400 font-semibold uppercase tracking-wider">Sales Warehouse Coordinator</span>
+                                <h4 class="text-xl font-bold text-white">Davies Paints Philippines Inc.</h4>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-mono shrink-0 w-fit">
+                                2017 – 2021
+                            </span>
+                        </div>
+                        <ul class="space-y-2 text-sm text-zinc-300">
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-emerald-400 mt-1 shrink-0"></i>
+                                <span>Coordinated sales operations and monitored inventory across warehouse branches.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-emerald-400 mt-1 shrink-0"></i>
+                                <span>Validated purchase order model codes and prices against shipped goods to ensure compliance.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Exp Item 5 -->
+                    <div class="exp-card glass-card rounded-2xl p-6 sm:p-8 space-y-4" data-category="seo">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <div>
+                                <span class="text-xs font-mono text-indigo-400 font-semibold uppercase tracking-wider">Link Builder & SEO Outreach Specialist</span>
+                                <h4 class="text-xl font-bold text-white">Tikru Digital / Authority Link Partners / DG Digital</h4>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-mono shrink-0 w-fit">
+                                2017 – 2020
+                            </span>
+                        </div>
+                        <p class="text-sm text-zinc-300">
+                            Executed end-to-end link building campaigns, competitive keyword analysis, outreach email communications, directory listings, and resource page placements across multiple client domains.
+                        </p>
+                    </div>
+
+                    <!-- Exp Item 6 -->
+                    <div class="exp-card glass-card rounded-2xl p-6 sm:p-8 space-y-4" data-category="it">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <div>
+                                <span class="text-xs font-mono text-blue-400 font-semibold uppercase tracking-wider">Desktop Support Specialist</span>
+                                <h4 class="text-xl font-bold text-white">2nd District Legislative Office of Misamis Oriental</h4>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300 text-xs font-mono shrink-0 w-fit">
+                                2014
+                            </span>
+                        </div>
+                        <p class="text-sm text-zinc-300">
+                            Maintained local government office computer hardware, formatted workstations, replaced defective components, and prioritized request tickets.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CERTIFICATIONS & CREDENTIALS SECTION -->
+        <section id="certifications" class="py-20 border-t border-zinc-800/60 bg-grid-pattern">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center space-y-4 mb-16">
+                    <h2 class="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400">Verified Credentials</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Certifications & Training</h3>
+                    <div class="w-16 h-1 bg-gradient-to-r from-emerald-500 to-cyan-500 mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                    
+                    <!-- Cert 1: Microsoft 365 -->
+                    <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border-l-4 border-l-purple-500">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-purple-500/10 text-purple-300 text-xs font-mono">
+                                    <i data-lucide="award" class="w-3.5 h-3.5"></i> Microsoft Certified
+                                </div>
+                                <span class="text-xs text-zinc-500 font-mono">Jan 5, 2025</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-white">Microsoft 365 Certified: Fundamentals</h4>
+                            <div class="space-y-1 text-xs font-mono text-zinc-400">
+                                <p><span class="text-zinc-500">Credential ID:</span> F14171415321EFB4</p>
+                                <p><span class="text-zinc-500">Certification No:</span> HEC471-226842</p>
+                            </div>
+                        </div>
+                        <div class="pt-6 flex items-center justify-between border-t border-zinc-800/80 mt-4">
+                            <span class="text-xs text-emerald-400 flex items-center gap-1 font-mono">
+                                <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Online Verifiable
+                            </span>
+                            <button onclick="viewCertModal('Microsoft 365 Certified: Fundamentals', 'F14171415321EFB4', 'HEC471-226842', 'January 5, 2025', 'Microsoft')" class="text-xs font-semibold text-purple-400 hover:text-purple-300 transition-colors">
+                                View Details &rarr;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Cert 2: Win 11 Intermediate -->
+                    <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border-l-4 border-l-cyan-500">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-300 text-xs font-mono">
+                                    <i data-lucide="linkedin" class="w-3.5 h-3.5"></i> LinkedIn Learning
+                                </div>
+                                <span class="text-xs text-zinc-500 font-mono">Aug 12, 2025</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-white">Windows 11 for IT Support: Intermediate Troubleshooting</h4>
+                            <div class="space-y-1 text-xs font-mono text-zinc-400">
+                                <p class="truncate"><span class="text-zinc-500">Cert ID:</span> 77fa3a0c80e1af804a90ca0...</p>
+                            </div>
+                        </div>
+                        <div class="pt-6 flex items-center justify-between border-t border-zinc-800/80 mt-4">
+                            <span class="text-xs text-emerald-400 flex items-center gap-1 font-mono">
+                                <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Completed
+                            </span>
+                            <button onclick="viewCertModal('Windows 11 for IT Support: Intermediate Troubleshooting', '77fa3a0c80e1af804a90ca007c8d38730f9b9912b30fd9d4cdaced9c5ce4b2a', 'LinkedIn Learning', 'August 12, 2025', 'Software Troubleshooting, Windows 11')" class="text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors">
+                                View Details &rarr;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Cert 3: Win 11 Advanced -->
+                    <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border-l-4 border-l-blue-500">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-blue-500/10 text-blue-300 text-xs font-mono">
+                                    <i data-lucide="linkedin" class="w-3.5 h-3.5"></i> LinkedIn Learning
+                                </div>
+                                <span class="text-xs text-zinc-500 font-mono">Aug 12, 2025</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-white">Windows 11 for IT Support: Advanced Troubleshooting</h4>
+                            <div class="space-y-1 text-xs font-mono text-zinc-400">
+                                <p class="truncate"><span class="text-zinc-500">Cert ID:</span> 8392130817c989328f968d5...</p>
+                            </div>
+                        </div>
+                        <div class="pt-6 flex items-center justify-between border-t border-zinc-800/80 mt-4">
+                            <span class="text-xs text-emerald-400 flex items-center gap-1 font-mono">
+                                <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Completed
+                            </span>
+                            <button onclick="viewCertModal('Windows 11 for IT Support: Advanced Troubleshooting', '8392130817c989328f968d52650716057d3c41849ce0afe53ad82a9be362b320', 'LinkedIn Learning', 'August 12, 2025', 'Advanced System Diagnostics')" class="text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors">
+                                View Details &rarr;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Cert 4: Remote Administration -->
+                    <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border-l-4 border-l-pink-500">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-pink-500/10 text-pink-300 text-xs font-mono">
+                                    <i data-lucide="shield" class="w-3.5 h-3.5"></i> CompTIA Partner / LinkedIn
+                                </div>
+                                <span class="text-xs text-zinc-500 font-mono">Aug 13, 2025</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-white">Troubleshooting IT Remote Administration</h4>
+                            <div class="space-y-1 text-xs font-mono text-zinc-400">
+                                <p class="truncate"><span class="text-zinc-500">Cert ID:</span> 6e8f1a77018fdd8a2346f06...</p>
+                            </div>
+                        </div>
+                        <div class="pt-6 flex items-center justify-between border-t border-zinc-800/80 mt-4">
+                            <span class="text-xs text-emerald-400 flex items-center gap-1 font-mono">
+                                <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Completed
+                            </span>
+                            <button onclick="viewCertModal('Troubleshooting IT Remote Administration', '6e8f1a77018fdd8a2346f063d9772923f0c9d42085326a28a4ba8ee827e35da7', 'CompTIA Partner', 'August 13, 2025', 'Remote Administration, Remote Incident Resolution')" class="text-xs font-semibold text-pink-400 hover:text-pink-300 transition-colors">
+                                View Details &rarr;
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="py-20 border-t border-zinc-800/60 bg-dark-bg/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center space-y-4 mb-16">
+                    <h2 class="text-xs font-mono font-bold uppercase tracking-widest text-purple-400">Get In Touch</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Contact & Connect</h3>
+                    <div class="w-16 h-1 bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    
+                    <!-- Direct Info Cards (4 Cols) -->
+                    <div class="lg:col-span-5 space-y-4">
+                        
+                        <!-- Phone Card -->
+                        <div class="glass-card rounded-2xl p-6 flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 shrink-0">
+                                    <i data-lucide="phone-call" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-mono text-zinc-500 uppercase">Phone / Mobile</p>
+                                    <p class="text-white font-mono font-semibold text-sm sm:text-base">+63 993 441 7648</p>
+                                </div>
+                            </div>
+                            <button onclick="copyToClipboard('+639934417648')" class="p-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 transition-colors" title="Copy Phone Number">
+                                <i data-lucide="copy" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+
+                        <!-- Email Card -->
+                        <div class="glass-card rounded-2xl p-6 flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
+                                    <i data-lucide="mail" class="w-5 h-5"></i>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <p class="text-xs font-mono text-zinc-500 uppercase">Direct Email</p>
+                                    <p class="text-white font-mono font-semibold text-sm sm:text-base truncate">jan.gabrinez@outlook.com</p>
+                                </div>
+                            </div>
+                            <button onclick="copyToClipboard('jan.gabrinez@outlook.com')" class="p-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 transition-colors shrink-0" title="Copy Email">
+                                <i data-lucide="copy" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+
+                        <!-- Location Card -->
+                        <div class="glass-card rounded-2xl p-6 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-mono text-zinc-500 uppercase">Primary Residence</p>
+                                <p class="text-white font-medium text-sm">Lower Jasaan, Jasaan, Misamis Oriental, 9000 Philippines</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Contact Form (7 Cols) -->
+                    <div class="lg:col-span-7 glass-panel rounded-3xl p-6 sm:p-8 border border-zinc-800">
+                        <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-xs font-mono text-zinc-400 mb-2">Your Name *</label>
+                                    <input type="text" required placeholder="John Doe" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-purple-500 transition-colors">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-mono text-zinc-400 mb-2">Your Email *</label>
+                                    <input type="email" required placeholder="john@example.com" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-purple-500 transition-colors">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-mono text-zinc-400 mb-2">Subject</label>
+                                <input type="text" placeholder="Job Opportunity / Inquiry" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-purple-500 transition-colors">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-mono text-zinc-400 mb-2">Message *</label>
+                                <textarea required rows="4" placeholder="Hello Janine, I would like to discuss..." class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-purple-500 transition-colors"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-600 hover:opacity-90 transition-all duration-300 shadow-xl shadow-purple-900/30 flex items-center justify-center gap-2">
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-zinc-800 bg-dark-bg py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <span class="font-mono font-bold text-white">JEG</span>
+                <span class="text-zinc-600">|</span>
+                <span class="text-xs text-zinc-400">© 2026 Janine Eireen E. Gabrinez. All Rights Reserved.</span>
+            </div>
+            <div class="text-xs text-zinc-500 font-mono">
+                Built with Single-File Modern Web Stack
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL POPUP (Shared for Notifications & Cert Details) -->
+    <div id="modalOverlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-panel border border-zinc-700 rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-6 relative animate-in fade-in zoom-in duration-200">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-zinc-400 hover:text-white p-2">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            
+            <div id="modalContent" class="space-y-4">
+                <!-- Dynamic Content via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mouse Spotlight Movement
+        window.addEventListener('mousemove', (e) => {
+            const spotlight = document.getElementById('spotlight');
+            spotlight.style.setProperty('--mouse-x', `${e.clientX}px`);
+            spotlight.style.setProperty('--mouse-y', `${e.clientY}px`);
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileDrawer.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileDrawer.classList.add('hidden');
+            });
+        });
+
+        // Experience Filter Logic
+        function filterExperience(category) {
+            const cards = document.querySelectorAll('.exp-card');
+            const buttons = document.querySelectorAll('.exp-filter-btn');
+
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-filter') === category) {
+                    btn.className = "exp-filter-btn px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all bg-purple-600 text-white shadow-lg shadow-purple-600/20";
+                } else {
+                    btn.className = "exp-filter-btn px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all glass-card text-zinc-400 hover:text-white";
+                }
+            });
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Copy to clipboard fallback handler
+        function copyToClipboard(text) {
+            const tempInput = document.createElement("input");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            showModalNotice("Copied to Clipboard!", `"${text}" has been copied to your clipboard.`);
+        }
+
+        // Form Submit Handler
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            showModalNotice("Message Sent Successfully!", "Thank you for reaching out. Janine will respond to your query as soon as possible.");
+            document.getElementById('contactForm').reset();
+        }
+
+        // Certification View Modal
+        function viewCertModal(title, certId, certNum, date, issuer) {
+            const modalContent = document.getElementById('modalContent');
+            modalContent.innerHTML = `
+                <div class="text-center space-y-3">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-500/20 text-purple-400 flex items-center justify-center mx-auto border border-purple-500/30">
+                        <i data-lucide="award" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">${title}</h3>
+                    <p class="text-xs font-mono text-purple-300">Issued by: ${issuer}</p>
+                </div>
+
+                <div class="space-y-3 bg-zinc-900/90 p-4 rounded-xl border border-zinc-800 font-mono text-xs text-zinc-300">
+                    <div class="flex justify-between">
+                        <span class="text-zinc-500">Credential ID:</span>
+                        <span class="text-zinc-200 truncate max-w-[200px]">${certId}</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-zinc-500">Details / Number:</span>
+                        <span class="text-zinc-200">${certNum}</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-zinc-500">Date Earned:</span>
+                        <span class="text-zinc-200">${date}</span>
+                    </div>
+                </div>
+
+                <div class="pt-2">
+                    <button onclick="closeModal()" class="w-full py-2.5 rounded-xl font-semibold text-white bg-purple-600 hover:bg-purple-500 transition-colors text-sm">
+                        Close Preview
+                    </button>
+                </div>
+            `;
+            lucide.createIcons();
+            document.getElementById('modalOverlay').classList.remove('hidden');
+        }
+
+        // Generic Notice Modal
+        function showModalNotice(title, message) {
+            const modalContent = document.getElementById('modalContent');
+            modalContent.innerHTML = `
+                <div class="text-center space-y-3">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/30">
+                        <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">${title}</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">${message}</p>
+                </div>
+
+                <div class="pt-4">
+                    <button onclick="closeModal()" class="w-full py-2.5 rounded-xl font-semibold text-white bg-purple-600 hover:bg-purple-500 transition-colors text-sm">
+                        OK, Got it
+                    </button>
+                </div>
+            `;
+            lucide.createIcons();
+            document.getElementById('modalOverlay').classList.remove('hidden');
+        }
+
+        // Resume Summary Modal
+        function downloadResumeModal() {
+            const modalContent = document.getElementById('modalContent');
+            modalContent.innerHTML = `
+                <div class="text-center space-y-3">
+                    <div class="w-12 h-12 rounded-2xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center mx-auto border border-indigo-500/30">
+                        <i data-lucide="file-text" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Janine Gabrinez - Resume Brief</h3>
+                    <p class="text-xs text-zinc-400">Computer Science Graduate | IT Engineer & Remote Support</p>
+                </div>
+
+                <div class="space-y-2 text-xs text-zinc-300 max-h-60 overflow-y-auto pr-1">
+                    <p><strong>Contact:</strong> +63 993 441 7648 | jan.gabrinez@outlook.com</p>
+                    <p><strong>Location:</strong> Misamis Oriental, Philippines</p>
+                    <p><strong>Primary Roles:</strong> L1 Helpdesk IT Engineer @ Cre8 MSP Technology LLC (2021-2026), Video Editor, BigCommerce Upload Specialist.</p>
+                    <p><strong>Key Certifications:</strong> Microsoft 365 Certified Fundamentals, Windows 11 IT Support Advanced & Intermediate, Remote IT Administration.</p>
+                </div>
+
+                <div class="pt-4 flex gap-3">
+                    <button onclick="window.print()" class="flex-1 py-2.5 rounded-xl font-semibold text-white bg-purple-600 hover:bg-purple-500 transition-colors text-sm flex items-center justify-center gap-2">
+                        <i data-lucide="printer" class="w-4 h-4"></i> Print / Save PDF
+                    </button>
+                    <button onclick="closeModal()" class="py-2.5 px-4 rounded-xl font-semibold text-zinc-400 hover:text-white glass-card text-sm">
+                        Close
+                    </button>
+                </div>
+            `;
+            lucide.createIcons();
+            document.getElementById('modalOverlay').classList.remove('hidden');
+        }
+
+        // Close Modal Helper
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.add('hidden');
+        }
+
+        // Close Modal when clicking background overlay
+        document.getElementById('modalOverlay').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('modalOverlay')) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
